@@ -26,6 +26,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ListItem
@@ -56,6 +57,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.LightMode
+import androidx.compose.material.icons.filled.Widgets
+import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material.icons.filled.Info
 import kotlinx.cinterop.ExperimentalForeignApi
 
 fun main() = application {
@@ -82,9 +89,9 @@ fun App(isDark: Boolean, onToggleDark: (Boolean) -> Unit) {
                 ),
                 actions = {
                     IconButton(onClick = { onToggleDark(!isDark) }) {
-                        Text(
-                            text = if (isDark) "☀" else "🌙",
-                            fontSize = 18.sp,
+                        Icon(
+                            imageVector = if (isDark) Icons.Filled.LightMode else Icons.Filled.DarkMode,
+                            contentDescription = "Toggle theme",
                         )
                     }
                 },
@@ -98,13 +105,13 @@ fun App(isDark: Boolean, onToggleDark: (Boolean) -> Unit) {
                         onClick = { currentTab = index },
                         label = { Text(title) },
                         icon = {
-                            Text(
-                                text = when (index) {
-                                    0 -> "⬡"
-                                    1 -> "✎"
-                                    else -> "ℹ"
+                            Icon(
+                                imageVector = when (index) {
+                                    0 -> Icons.Filled.Widgets
+                                    1 -> Icons.Filled.EditNote
+                                    else -> Icons.Filled.Info
                                 },
-                                fontSize = 16.sp,
+                                contentDescription = title,
                             )
                         },
                     )

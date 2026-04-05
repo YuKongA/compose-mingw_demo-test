@@ -28,6 +28,8 @@ kotlin {
                 implementation("org.jetbrains.compose.foundation:foundation-mingwx64:1.11.0-alpha04")
                 implementation("org.jetbrains.compose.runtime:runtime-mingwx64:1.11.0-alpha04")
                 implementation("org.jetbrains.skiko:skiko:0.144.5")
+                implementation("org.jetbrains.compose.material:material-icons-core-mingwx64:1.7.3")
+                implementation("org.jetbrains.compose.material:material-icons-extended-mingwx64:1.7.3")
             }
         }
     }
